@@ -18,6 +18,7 @@ var Gorgias = function Gorgias(params) {
     this.params = {
         apiKey: null,
         chatId: null,
+        injectCSS: null,
         debug: false
     };
     this.BASE_URL = 'https://config.gorgias.io/production/';
@@ -74,19 +75,21 @@ Gorgias.prototype.ready = function ready (callback) {
  * @function updateCSS
  */
 Gorgias.prototype.updateCSS = function updateCSS () {
-    var iframe = document.querySelector('#gorgias-web-messenger-container');
-    logDebug('Update CSS called.', this.params);
-    if (iframe) {
-        try {
-            var link = document.createElement('link');
-            link.setAttribute('href', '/static/css/gorgias.css');
-            link.setAttribute('rel', 'stylesheet');
-            link.setAttribute('type', 'text/css');
-            // @ts-ignore
-            iframe.contentDocument.head.appendChild(link);
-        }
-        catch (e) {
-            console.error('Gorgias: Could not append CSS in Gorgias iframe.', e);
+    if (this.params.injectCSS) {
+        var iframe = document.querySelector('#gorgias-web-messenger-container');
+        logDebug('Update CSS called.', this.params);
+        if (iframe) {
+            try {
+                var link = document.createElement('link');
+                link.setAttribute('href', this.params.injectCSS);
+                link.setAttribute('rel', 'stylesheet');
+                link.setAttribute('type', 'text/css');
+                // @ts-ignore
+                iframe.contentDocument.head.appendChild(link);
+            }
+            catch (e) {
+                console.error('Gorgias: Could not append CSS in Gorgias iframe.', e);
+            }
         }
     }
 };
