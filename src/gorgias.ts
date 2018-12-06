@@ -13,7 +13,7 @@ export default class Gorgias {
   private BASE_URL: String = 'https://config.gorgias.io/production/'
 
   constructor (params: GorgiasOptions | undefined) {
-    const overrideParams = Object.assign({}, this.params, params);
+    const overrideParams = Object.assign({}, this.params, params)
 
     if (!overrideParams.apiKey) throw new Error('API key is missing.')
     if (!overrideParams.chatId) throw new Error('Chat ID is missing.')
@@ -76,7 +76,7 @@ export default class Gorgias {
           const link = document.createElement('link')
           link.setAttribute('href', this.params.injectCSS)
           link.setAttribute('rel', 'stylesheet')
-          link.setAttribute('type', 'text/css');
+          link.setAttribute('type', 'text/css')
 
           // @ts-ignore
           iframe.contentDocument.head.appendChild(link)
