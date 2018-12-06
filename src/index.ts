@@ -1,7 +1,7 @@
 import _Vue from 'vue'
 import GorgiasOptions from './interfaces/GorgiasOptions'
 import VueGorgiasOptions, { PluginFunction } from './interfaces/VueGorgiasOptions'
-import Gorgias from './gorgias';
+import Gorgias from './gorgias'
 
 const version = '__VERSION__'
 

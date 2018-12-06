@@ -1,4 +1,4 @@
-import GorgiasOptions from './../interfaces/GorgiasOptions';
+import GorgiasOptions from './../interfaces/GorgiasOptions'
 
 /**
  * @function logDebug
